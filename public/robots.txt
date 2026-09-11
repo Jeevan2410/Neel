@@ -1,0 +1,29 @@
+# https://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+
+# Allow all public pages
+Allow: /
+Allow: /en/
+Allow: /kn/
+Allow: /hi/
+Allow: /services/
+Allow: /about/
+Allow: /contact/
+Allow: /faq/
+Allow: /locations/
+Allow: /industries/
+Allow: /brands/
+Allow: /projects/
+
+# Disallow admin and internal routes
+Disallow: /admin
+Disallow: /api
+Disallow: /*?
+Disallow: /*.json$
+
+# Sitemap location
+Sitemap: https://neel-enterprises.com/sitemap.xml
+
+# Crawl delay (optional - be nice to the server)
+Crawl-delay: 1

@@ -1,0 +1,77 @@
+---
+// Root Layout for NEEL ENTERPRISES
+// Applies to all pages - includes global styles, fonts, and base structure
+---
+
+<!doctype html>
+<html lang={Astro.props.lang || 'en'} class={Astro.props.darkMode ? 'dark' : ''}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Astro" />
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Google Fonts - Inter & Oswald -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    
+    <!-- Global Styles -->
+    <style is:global>
+      @import '../styles/global.css';
+    </style>
+    
+    <!-- Slot for page-specific head content -->
+    <slot name="head" />
+  </head>
+  
+  <body class="antialiased">
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">
+      Skip to main content
+    </a>
+    
+    <!-- Navigation slot -->
+    <slot name="navigation" />
+    
+    <!-- Main content -->
+    <main id="main-content" class="min-h-screen">
+      <slot />
+    </main>
+    
+    <!-- Footer slot -->
+    <slot name="footer" />
+    
+    <!-- Scripts -->
+    <script is:inline>
+      // Theme persistence
+      const theme = localStorage.getItem('theme');
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      if (theme === 'dark' || (!theme && systemPrefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+      
+      // Reduced motion detection
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.style.setProperty('--duration-fast', '0ms');
+        document.documentElement.style.setProperty('--duration-normal', '0ms');
+        document.documentElement.style.setProperty('--duration-slow', '0ms');
+      }
+    </script>
+    
+    <!-- Slot for page-specific scripts -->
+    <slot name="scripts" />
+  </body>
+</html>
