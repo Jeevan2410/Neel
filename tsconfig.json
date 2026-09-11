@@ -1,0 +1,79 @@
+// TypeScript Configuration for NEEL ENTERPRISES
+{
+  "compilerOptions": {
+    // Target and Module
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    
+    // Strict Type Checking
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "useUnknownInCatchVariables": true,
+    
+    // Additional Checks
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    
+    // Interop Constraints
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
+    
+    // Language and Library
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+    
+    // Path Mapping
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@pages/*": ["src/pages/*"],
+      "@styles/*": ["src/styles/*"],
+      "@config/*": ["src/config/*"],
+      "@lib/*": ["src/lib/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@types/*": ["src/types/*"]
+    },
+    
+    // Output
+    "outDir": "./dist",
+    "rootDir": ".",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    
+    // Astro Specific
+    "jsx": "preserve",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "checkJs": false,
+    
+    // Types
+    "types": ["astro/client", "node", "three"]
+  },
+  "include": [
+    "src/**/*",
+    "astro.config.mjs"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    ".astro",
+    "public"
+  ]
+}

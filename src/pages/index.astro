@@ -1,0 +1,243 @@
+---
+// Homepage for NEEL ENTERPRISES
+// Primary landing page with conversion-focused design
+---
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const siteTitle = 'NEEL ENTERPRISES - Material Handling Engineering';
+const siteDescription = 'Professional forklift repair, maintenance, spare parts, and rental services across India. 18+ years of experience in material handling equipment.';
+
+---
+
+<BaseLayout lang="en">
+  <!-- SEO Meta Tags -->
+  <svelte:head slot="head">
+    <title>{siteTitle}</title>
+    <meta name="description" content={siteDescription} />
+    <meta name="keywords" content="forklift repair, material handling, industrial equipment, forklift maintenance, battery service, India" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={Astro.site} />
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={siteDescription} />
+    <meta property="og:url" content={Astro.site} />
+    <meta property="og:site_name" content="NEEL ENTERPRISES" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={siteTitle} />
+    <meta name="twitter:description" content={siteDescription} />
+    
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "NEEL ENTERPRISES",
+      "url": Astro.site,
+      "logo": `${Astro.site}/logo.png`,
+      "description": siteDescription,
+      "foundingDate": "2006",
+      "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "value": "10-50"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-81051-42089",
+        "contactType": "customer service",
+        "email": "neelenterprises.741@gmail.com",
+        "areaServed": "IN",
+        "availableLanguage": ["English", "Kannada", "Hindi"]
+      },
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "addressLocality": "Kinnigoli",
+          "addressRegion": "Karnataka",
+          "postalCode": "574150",
+          "addressCountry": "IN",
+          "streetAddress": "No.11-87/3 & 11-87/4, SDANANDA BUILDING, KINNIGOLI MAIN ROAD, OPPOSITE DURGAPRASAD RECIDENCY, MENNABETU"
+        },
+        {
+          "@type": "PostalAddress",
+          "addressLocality": "Bangalore",
+          "addressRegion": "Karnataka",
+          "postalCode": "560090",
+          "addressCountry": "IN",
+          "streetAddress": "Sy No-14/5, Hanuman Layout, Hesaraghatta Main Road, Near Chikkabanavara Railway Station, Chikkabanavara"
+        }
+      ]
+    })} />
+  </svelte:head>
+
+  <!-- Hero Section Placeholder -->
+  <section class="min-h-screen flex items-center justify-center bg-neutral-100 dark:bg-neutral-900">
+    <div class="container mx-auto px-4 py-16">
+      <div class="text-center">
+        <h1 class="text-5xl md:text-7xl font-bold text-primary-900 dark:text-neutral-50 mb-6 font-display">
+          NEEL ENTERPRISES
+        </h1>
+        <p class="text-xl md:text-2xl text-neutral-600 dark:text-neutral-300 mb-8">
+          Material Handling Engineering
+        </p>
+        <p class="text-lg text-neutral-500 dark:text-neutral-400 max-w-2xl mx-auto mb-12">
+          Professional forklift repair, maintenance, and rental services with 18+ years of expertise
+        </p>
+        
+        <!-- Primary CTAs -->
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a
+            href="https://wa.me/918105142089?text=Hello%20NEEL%20ENTERPRISES%2C%20I%20would%20like%20to%20enquire%20about%20your%20forklift%20services."
+            class="inline-flex items-center px-8 py-4 bg-accent-500 hover:bg-accent-600 text-white font-semibold rounded-md transition-colors duration-200"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WhatsApp Us
+          </a>
+          <a
+            href="mailto:neelenterprises.741@gmail.com"
+            class="inline-flex items-center px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-md transition-colors duration-200"
+          >
+            Email Us
+          </a>
+          <a
+            href="/request-service"
+            class="inline-flex items-center px-8 py-4 border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white dark:border-primary-400 dark:text-primary-400 dark:hover:bg-primary-400 dark:hover:text-primary-900 font-semibold rounded-md transition-colors duration-200"
+          >
+            Request Service
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Preview Section -->
+  <section class="py-20 bg-white dark:bg-neutral-800">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-neutral-50 mb-4 font-display">
+          Our Services
+        </h2>
+        <p class="text-lg text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
+          Comprehensive solutions for all your material handling equipment needs
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Service Cards Placeholder -->
+        <article class="p-6 bg-neutral-50 dark:bg-neutral-700 rounded-lg border border-neutral-200 dark:border-neutral-600">
+          <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-50 mb-2">Electric Forklift Repair</h3>
+          <p class="text-neutral-600 dark:text-neutral-300 mb-4">Expert repair services for electric forklifts of all major brands.</p>
+          <a href="/services/electric-forklift-repair" class="text-primary-600 dark:text-primary-400 hover:underline">Learn more →</a>
+        </article>
+        
+        <article class="p-6 bg-neutral-50 dark:bg-neutral-700 rounded-lg border border-neutral-200 dark:border-neutral-600">
+          <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-50 mb-2">Diesel Forklift Repair</h3>
+          <p class="text-neutral-600 dark:text-neutral-300 mb-4">Complete diesel forklift repair and engine overhauling services.</p>
+          <a href="/services/diesel-forklift-repair" class="text-primary-600 dark:text-primary-400 hover:underline">Learn more →</a>
+        </article>
+        
+        <article class="p-6 bg-neutral-50 dark:bg-neutral-700 rounded-lg border border-neutral-200 dark:border-neutral-600">
+          <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-50 mb-2">Preventive Maintenance</h3>
+          <p class="text-neutral-600 dark:text-neutral-300 mb-4">Scheduled maintenance to keep your equipment running smoothly.</p>
+          <a href="/services/preventive-maintenance" class="text-primary-600 dark:text-primary-400 hover:underline">Learn more →</a>
+        </article>
+        
+        <article class="p-6 bg-neutral-50 dark:bg-neutral-700 rounded-lg border border-neutral-200 dark:border-neutral-600">
+          <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-50 mb-2">Battery Service</h3>
+          <p class="text-neutral-600 dark:text-neutral-300 mb-4">Battery sales, inspection, service, and reconditioning.</p>
+          <a href="/services/battery-service" class="text-primary-600 dark:text-primary-400 hover:underline">Learn more →</a>
+        </article>
+        
+        <article class="p-6 bg-neutral-50 dark:bg-neutral-700 rounded-lg border border-neutral-200 dark:border-neutral-600">
+          <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-50 mb-2">Spare Parts</h3>
+          <p class="text-neutral-600 dark:text-neutral-300 mb-4">Genuine spare parts for all major forklift brands.</p>
+          <a href="/services/spare-parts" class="text-primary-600 dark:text-primary-400 hover:underline">Learn more →</a>
+        </article>
+        
+        <article class="p-6 bg-neutral-50 dark:bg-neutral-700 rounded-lg border border-neutral-200 dark:border-neutral-600">
+          <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-50 mb-2">Forklift Rental</h3>
+          <p class="text-neutral-600 dark:text-neutral-300 mb-4">Flexible rental solutions for your temporary equipment needs.</p>
+          <a href="/services/forklift-rental" class="text-primary-600 dark:text-primary-400 hover:underline">Learn more →</a>
+        </article>
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="/services" class="inline-flex items-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-md transition-colors duration-200">
+          View All Services →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Preview Section -->
+  <section class="py-20 bg-neutral-100 dark:bg-neutral-900">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-neutral-50 mb-6 font-display">
+          18+ Years of Excellence
+        </h2>
+        <p class="text-lg text-neutral-600 dark:text-neutral-300 mb-8">
+          NEEL ENTERPRISES has been providing professional material handling solutions with qualified technical staff, quick service delivery, and cost-effective solutions for electric and diesel forklifts.
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12">
+          <div class="text-center">
+            <div class="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">18+</div>
+            <div class="text-sm text-neutral-600 dark:text-neutral-400">Years Experience</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">Multi-Brand</div>
+            <div class="text-sm text-neutral-600 dark:text-neutral-400">Technical Expertise</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">Pan-India</div>
+            <div class="text-sm text-neutral-600 dark:text-neutral-400">Service Coverage</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">Quick</div>
+            <div class="text-sm text-neutral-600 dark:text-neutral-400">Response Time</div>
+          </div>
+        </div>
+        <div class="mt-12">
+          <a href="/about" class="inline-flex items-center px-6 py-3 border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white dark:border-primary-400 dark:text-primary-400 dark:hover:bg-primary-400 dark:hover:text-primary-900 font-semibold rounded-md transition-colors duration-200">
+            Learn More About Us →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA Section -->
+  <section class="py-20 bg-primary-900 dark:bg-neutral-950">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 font-display">
+          Keep Your Operation Moving
+        </h2>
+        <p class="text-lg text-neutral-300 mb-8">
+          When your forklift stops, your operation shouldn't. Get in touch with our experts today.
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a
+            href="https://wa.me/918105142089?text=Hello%20NEEL%20ENTERPRISES%2C%20I%20need%20urgent%20help%20with%20a%20forklift%20breakdown."
+            class="inline-flex items-center px-8 py-4 bg-accent-500 hover:bg-accent-600 text-white font-semibold rounded-md transition-colors duration-200"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WhatsApp for Breakdown
+          </a>
+          <a
+            href="mailto:neelenterprises.741@gmail.com?subject=Forklift%20Service%20Enquiry"
+            class="inline-flex items-center px-8 py-4 bg-white hover:bg-neutral-100 text-primary-900 font-semibold rounded-md transition-colors duration-200"
+          >
+            Email Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
