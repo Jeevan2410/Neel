@@ -1,0 +1,282 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/navigation/Header.astro';
+import Footer from '../../../components/footer/Footer.astro';
+
+const pageTitle = 'Kinnigoli Office | NEEL ENTERPRISES Forklift Services';
+const pageDescription = 'NEEL ENTERPRISES registered office in Kinnigoli, Mangaluru region. Forklift repair, maintenance, spare parts, and rental services across Karnataka.';
+const canonicalURL = 'https://neelenterprises.com/locations/kinnigoli/';
+
+const office = {
+  name: 'Registered Office - Kinnigoli',
+  area: 'Mennabetu',
+  address: 'No.11-87/3 & 11-87/4, SDANANDA BUILDING, KINNIGOLI MAIN ROAD, OPPOSITE DURGAPRASAD RECIDENCY, MENNABETU, KINNIGOLI – 574150',
+  pincode: '574150',
+  city: 'Kinnigoli',
+  state: 'Karnataka',
+  phone: '+91 81051 42089',
+  email: 'neelenterprises.741@gmail.com',
+  mapsQuery: 'Kinnigoli Main Road Mennabetu Kinnigoli 574150'
+};
+---
+
+<BaseLayout lang="en">
+  <Header />
+
+  <main class="min-h-screen bg-white dark:bg-gray-950">
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-orange-50 to-orange-100 dark:from-gray-900 dark:to-gray-800"></div>
+      
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-4xl mx-auto">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+            <span class="text-orange-600">Kinnigoli</span> Registered Office
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8">
+            Mennabetu, Mangaluru Region
+          </p>
+          <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            Our headquarters serving Mangaluru, Udupi, Dakshina Kannada, and surrounding regions with comprehensive forklift services.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Office Details Section -->
+    <section class="py-20 bg-white dark:bg-gray-950">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <!-- Contact Information -->
+          <div>
+            <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 shadow-lg mb-8">
+              <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Office Information</h2>
+              
+              <div class="space-y-6">
+                <div>
+                  <h3 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">Address</h3>
+                  <address class="not-italic text-gray-700 dark:text-gray-300 leading-relaxed">
+                    {office.address}
+                  </address>
+                </div>
+                
+                <div>
+                  <h3 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">Contact</h3>
+                  <div class="space-y-2">
+                    <a 
+                      href={`tel:${office.phone.replace(/\s/g, '')}`}
+                      class="flex items-center text-gray-700 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
+                    >
+                      <svg class="w-5 h-5 mr-3 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 5 16.284 5 10V6a2 2 0 01-2-2z"/>
+                      </svg>
+                      {office.phone}
+                    </a>
+                    <a 
+                      href={`mailto:${office.email}`}
+                      class="flex items-center text-gray-700 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
+                    >
+                      <svg class="w-5 h-5 mr-3 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                      </svg>
+                      {office.email}
+                    </a>
+                  </div>
+                </div>
+                
+                <div>
+                  <h3 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">Service Area</h3>
+                  <p class="text-gray-700 dark:text-gray-300">
+                    Mangaluru, Udupi, Dakshina Kannada, Kasaragod, and surrounding coastal Karnataka regions
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="space-y-4">
+              <a 
+                href={`https://wa.me/918105142089?text=Hello%20NEEL%20ENTERPRISES%2C%20I%20am%20contacting%20from%20the%20Mangaluru%20region%20and%20need%20forklift%20services.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-center w-full px-6 py-4 bg-green-600 text-white font-semibold rounded-xl hover:bg-green-700 transition-colors duration-300 shadow-lg"
+              >
+                <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+                WhatsApp Us
+              </a>
+              <a 
+                href="/request-service/"
+                class="flex items-center justify-center w-full px-6 py-4 bg-orange-600 text-white font-semibold rounded-xl hover:bg-orange-700 transition-colors duration-300 shadow-lg"
+              >
+                Request Service
+              </a>
+            </div>
+          </div>
+
+          <!-- Map -->
+          <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg h-96 lg:h-auto">
+            <iframe 
+              src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3855.547190826909!2d74.9089!3d12.7893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35c7b0a0a0a0b%3A0x0!2sKinnigoli%2C%20Karnataka%20574150!5e0!3m2!1sen!2sin!4v1234567890`}
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Kinnigoli Office Location Map"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services at Location -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Services Available in Mangaluru Region
+          </h2>
+          <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            Comprehensive forklift support for businesses across coastal Karnataka and nearby areas
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            { title: 'Electric Forklift Repair', icon: '⚡' },
+            { title: 'Diesel Forklift Repair', icon: '🔧' },
+            { title: 'Preventive Maintenance', icon: '📋' },
+            { title: 'Breakdown Support', icon: '🚨' },
+            { title: 'Battery Service', icon: '🔋' },
+            { title: 'Spare Parts', icon: '🔩' },
+            { title: 'Forklift Rental', icon: '🏗️' },
+            { title: 'Hydraulic Repair', icon: '💧' },
+            { title: 'On-site Service', icon: '📍' }
+          ].map((service) => (
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+              <div class="text-3xl mb-3">{service.icon}</div>
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white">{service.title}</h3>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Industries Served -->
+    <section class="py-20 bg-white dark:bg-gray-950">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Industries We Serve in the Region
+          </h2>
+          <p class="text-lg text-gray-600 dark:text-gray-400">
+            Supporting diverse sectors across coastal Karnataka's industrial landscape
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[
+            'Ports & Shipping',
+            'Manufacturing',
+            'Warehousing',
+            'Food Processing',
+            'Engineering',
+            'Automotive',
+            'Construction',
+            'Logistics'
+          ].map((industry) => (
+            <div class="text-center p-6 bg-gray-50 dark:bg-gray-900 rounded-xl">
+              <h3 class="font-semibold text-gray-900 dark:text-white">{industry}</h3>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-orange-600 to-orange-700">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+          Need Forklift Services in Mangaluru Region?
+        </h2>
+        <p class="text-xl text-orange-100 mb-8">
+          Contact our Kinnigoli headquarters for prompt and professional material handling solutions.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a 
+            href={`https://wa.me/918105142089?text=Hello%20NEEL%20ENTERPRISES%2C%20I%20need%20forklift%20service%20in%20the%20Mangaluru%20region.`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center px-8 py-4 bg-white text-orange-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors duration-300 shadow-lg"
+          >
+            WhatsApp Now
+          </a>
+          <a 
+            href={`mailto:${office.email}?subject=Enquiry from Mangaluru Region`}
+            class="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-xl hover:bg-white/10 transition-colors duration-300"
+          >
+            Email Us
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  
+  <script>
+    document.title = pageTitle;
+    
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', pageDescription);
+    } else {
+      const newMeta = document.createElement('meta');
+      newMeta.name = 'description';
+      newMeta.content = pageDescription;
+      document.head.appendChild(newMeta);
+    }
+    
+    const linkCanonical = document.querySelector('link[rel="canonical"]');
+    if (linkCanonical) {
+      linkCanonical.setAttribute('href', canonicalURL);
+    } else {
+      const newLink = document.createElement('link');
+      newLink.rel = 'canonical';
+      newLink.href = canonicalURL;
+      document.head.appendChild(newLink);
+    }
+  </script>
+  
+  <!-- LocalBusiness Schema.org JSON-LD -->
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "NEEL ENTERPRISES - Kinnigoli Headquarters",
+      "image": "https://neelenterprises.com/images/brand/neel-enterprises-logo.png",
+      "telephone": "{office.phone}",
+      "email": "{office.email}",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "{office.address.split(',')[0]}",
+        "addressLocality": "{office.city}",
+        "addressRegion": "{office.state}",
+        "postalCode": "{office.pincode}",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "12.7893",
+        "longitude": "74.9089"
+      },
+      "url": "{canonicalURL}",
+      "openingHours": "Mo-Sa 09:00-18:00",
+      "priceRange": "$$",
+      "branchCode": "KIN001"
+    }
+  </script>
+</BaseLayout>
