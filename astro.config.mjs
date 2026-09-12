@@ -2,6 +2,7 @@
 // https://docs.astro.build/en/reference/configuration-reference/
 
 import { defineConfig } from 'astro/config';
+import cloudflare from '@astrojs/cloudflare';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
@@ -10,6 +11,16 @@ export default defineConfig({
   
   // Output mode: static by default, hybrid for dynamic routes
   output: 'hybrid',
+  
+  // Cloudflare adapter for SSR/hybrid mode
+  adapter: cloudflare({
+    mode: 'advanced',
+    platformProxy: {
+      configPath: 'wrangler.toml',
+      environment: undefined,
+      persist: true
+    }
+  }),
   
   // i18n configuration for multilingual support
   i18n: {
