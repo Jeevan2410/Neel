@@ -1,0 +1,243 @@
+---
+// Navigation Component for NEEL ENTERPRISES
+// Main navigation with responsive design and language/theme switchers
+
+import { siteConfig } from '../../config/site';
+
+export interface NavItem {
+  label: string;
+  href: string;
+  children?: NavItem[];
+}
+
+const mainNavItems: NavItem[] = [
+  { label: 'Home', href: '/' },
+  { 
+    label: 'Services', 
+    href: '/services',
+    children: [
+      { label: 'Electric Forklift Repair', href: '/services/electric-forklift-repair' },
+      { label: 'Diesel Forklift Repair', href: '/services/diesel-forklift-repair' },
+      { label: 'Preventive Maintenance', href: '/services/preventive-maintenance' },
+      { label: 'Battery Service', href: '/services/battery-service' },
+      { label: 'Spare Parts', href: '/services/spare-parts' },
+      { label: 'Forklift Rental', href: '/services/forklift-rental' }
+    ]
+  },
+  { label: 'About', href: '/about' },
+  { label: 'Industries', href: '/industries' },
+  { label: 'Locations', href: '/locations' },
+  { label: 'FAQ', href: '/faq' },
+  { label: 'Contact', href: '/contact' }
+];
+
+interface Props {
+  darkMode?: boolean;
+  currentLanguage?: string;
+  onLanguageChange?: (lang: string) => void;
+  onThemeToggle?: () => void;
+}
+
+const { darkMode = false, currentLanguage = 'en', onLanguageChange, onThemeToggle } = Astro.props;
+---
+
+<header class="site-header fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-neutral-900/95 backdrop-blur-sm border-b border-neutral-200 dark:border-neutral-800">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      
+      <!-- Logo -->
+      <a href="/" class="flex items-center space-x-3 group">
+        <img src="/logo.png" alt="NEEL ENTERPRISES" class="h-10 md:h-12 w-auto" />
+        <div class="hidden sm:block">
+          <span class="block font-display font-bold text-lg md:text-xl text-neutral-900 dark:text-neutral-50">
+            NEEL ENTERPRISES
+          </span>
+          <span class="block text-xs text-neutral-500 dark:text-neutral-400">
+            Material Handling Engineering
+          </span>
+        </div>
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center space-x-8" aria-label="Main navigation">
+        {mainNavItems.map((item) => (
+          item.children ? (
+            <div class="relative group">
+              <button class="flex items-center space-x-1 text-neutral-700 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors py-2">
+                <span>{item.label}</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <!-- Dropdown Menu -->
+              <div class="absolute top-full left-0 mt-2 w-56 bg-white dark:bg-neutral-800 rounded-md shadow-lg border border-neutral-200 dark:border-neutral-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
+                <div class="py-2">
+                  {item.children.map((child) => (
+                    <a
+                      href={child.href}
+                      class="block px-4 py-2 text-sm text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-700 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                    >
+                      {child.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ) : (
+            <a
+              href={item.href}
+              class="text-neutral-700 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
+            >
+              {item.label}
+            </a>
+          )
+        ))}
+      </nav>
+      
+      <!-- Right Side Actions -->
+      <div class="flex items-center space-x-4">
+        
+        <!-- Language Switcher -->
+        <div class="relative hidden md:block">
+          <select
+            value={currentLanguage}
+            onchange={(e) => onLanguageChange?.(e.target.value)}
+            class="appearance-none bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-md px-3 py-1.5 pr-8 text-sm text-neutral-700 dark:text-neutral-300 focus:outline-none focus:ring-2 focus:ring-primary-500 cursor-pointer"
+            aria-label="Select language"
+          >
+            {siteConfig.languages.map((lang) => (
+              <option value={lang.code}>{lang.nativeName}</option>
+            ))}
+          </select>
+          <svg class="w-4 h-4 absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+        
+        <!-- Theme Toggle -->
+        <button
+          onclick={onThemeToggle}
+          class="p-2 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+          aria-label="Toggle dark mode"
+        >
+          <!-- Sun Icon -->
+          <svg class="w-5 h-5 hidden dark:block text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <!-- Moon Icon -->
+          <svg class="w-5 h-5 block dark:hidden text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+        
+        <!-- CTA Button -->
+        <a
+          href="/request-service"
+          class="hidden sm:inline-flex items-center px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-md transition-colors duration-200"
+        >
+          Request Service
+        </a>
+        
+        <!-- Mobile Menu Button -->
+        <button
+          class="lg:hidden p-2 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+          aria-label="Toggle menu"
+          id="mobile-menu-button"
+        >
+          <svg class="w-6 h-6 text-neutral-700 dark:text-neutral-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mobile Menu -->
+  <div class="lg:hidden hidden bg-white dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800" id="mobile-menu">
+    <div class="container mx-auto px-4 py-4 space-y-4">
+      {mainNavItems.map((item) => (
+        item.children ? (
+          <div class="space-y-2">
+            <button class="flex items-center justify-between w-full text-neutral-700 dark:text-neutral-300 font-medium py-2">
+              <span>{item.label}</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="pl-4 space-y-2">
+              {item.children.map((child) => (
+                <a href={child.href} class="block text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400">
+                  {child.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <a
+            href={item.href}
+            class="block text-neutral-700 dark:text-neutral-300 font-medium py-2"
+          >
+            {item.label}
+          </a>
+        )
+      ))}
+      
+      <!-- Mobile Language Switcher -->
+      <div class="pt-4 border-t border-neutral-200 dark:border-neutral-800">
+        <select
+          value={currentLanguage}
+          onchange={(e) => onLanguageChange?.(e.target.value)}
+          class="w-full bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-md px-3 py-2 text-sm text-neutral-700 dark:text-neutral-300 focus:outline-none focus:ring-2 focus:ring-primary-500"
+          aria-label="Select language"
+        >
+          {siteConfig.languages.map((lang) => (
+            <option value={lang.code}>{lang.nativeName}</option>
+          ))}
+        </select>
+      </div>
+      
+      <!-- Mobile CTA -->
+      <a
+        href="/request-service"
+        class="block w-full text-center px-4 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-md transition-colors duration-200"
+      >
+        Request Service
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (menuButton && mobileMenu) {
+    menuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+  
+  // Close mobile menu on outside click
+  document.addEventListener('click', (e) => {
+    if (menuButton && mobileMenu && !menuButton.contains(e.target as Node) && !mobileMenu.contains(e.target as Node)) {
+      mobileMenu.classList.add('hidden');
+    }
+  });
+</script>
+
+<style>
+  .site-header {
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .site-header.scrolled {
+    background-color: rgba(255, 255, 255, 0.98);
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .dark .site-header.scrolled {
+    background-color: rgba(17, 24, 39, 0.98);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+</style>
