@@ -2,34 +2,10 @@
 # Dependencies
 node_modules/
 
-# Environment
-.env
-.env.local
-.env.*
-
-# Logs
-*.log
-
 # Build artifacts
 dist/
 build/
 target/
-
-# Cache
-.cache/
-.nyc_output/
-coverage/
-htmlcov/
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
 
 # Python
 __pycache__/
@@ -40,34 +16,35 @@ __pycache__/
 env/
 venv/
 .venv/
-pip-log.txt
-pip-delete-this-directory.txt
-.tox/
-.coverage
-.coverage.*
-nosetests.xml
-coverage.xml
-*.cover
+.ENV
+.python-version
+
+# Logs
 *.log
-.git/
-.mypy_cache/
-.pytest_cache/
-.hypothesis/
 
-# Node.js
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-node_modules/
-dist/
-build/
-*.min.js
-*.min.css
+# Environment variables
+.env
+.env.local
+.env.*
 
-# Temporary files
-*.tmp
-*.temp
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
 *~
+
+# OS generated files
 .DS_Store
 Thumbs.db
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
+
+# Cache
+.mypy_cache/
+.pytest_cache/
+.gradle/
 ```
