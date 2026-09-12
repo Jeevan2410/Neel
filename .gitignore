@@ -2,26 +2,6 @@
 # Dependencies
 node_modules/
 
-# Build artifacts
-dist/
-build/
-target/
-
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-env/
-venv/
-.venv/
-.ENV
-.python-version
-
-# Logs
-*.log
-
 # Environment variables
 .env
 .env.local
@@ -32,7 +12,25 @@ venv/
 .idea/
 *.swp
 *.swo
-*~
+*.tmp
+
+# Logs
+*.log
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Build outputs
+dist/
+build/
+target/
+
+# Database
+*.sqlite
+*.db
 
 # OS generated files
 .DS_Store
