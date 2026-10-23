@@ -10,15 +10,13 @@ export default defineConfig({
   base: process.env.BASE_PATH || '/',
   
   // Output mode: static by default, hybrid for dynamic routes
-  output: 'hybrid',
+  output: 'static',
   
   // Cloudflare adapter for SSR/hybrid mode
   adapter: cloudflare({
-    mode: 'advanced',
+    
     platformProxy: {
-      configPath: 'wrangler.toml',
-      environment: undefined,
-      persist: true
+      enabled: true
     }
   }),
   
@@ -78,8 +76,5 @@ export default defineConfig({
   // Security headers
   compressHTML: true,
   
-  // Experimental features
-  experimental: {
-    contentCollectionCache: true
-  }
+
 });
