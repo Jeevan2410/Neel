@@ -41,6 +41,8 @@ const enquirySchema = z.object({
   ip_address: z.string().optional(),
 });
 
+export const prerender = false;
+
 export const POST: APIRoute = async ({ request }) => {
   try {
     const body = await request.json();
